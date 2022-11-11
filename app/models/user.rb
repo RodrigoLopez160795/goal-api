@@ -2,10 +2,10 @@ class User < ApplicationRecord
   belongs_to :list
   has_secure_password
   has_secure_token
-  validates :username, :email, :password, presence: true
+  validates :username, :email, presence: true
   validates :username, length: { in: 6..20 }, presence: true
   validates :email, :username, uniqueness: true
-  validates :password, length: { minimum: 6 }
+  validates :password_digest, length: { minimum: 6 }
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\z/, message: 'invalid email' }
 
   def invalidate_token
