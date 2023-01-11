@@ -23,7 +23,7 @@ class ApplicationController < ActionController::API
 
   def authenticate_token
     authenticate_with_http_token do |token, _options|
-      User.where(token:).first
+      User.where(token:).last
     end
   end
 end

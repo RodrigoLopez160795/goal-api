@@ -4,7 +4,7 @@ class CreateGoals < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.text :description
       t.boolean :finish, default: false
-      t.string :finish_at
+      t.string :finish_at, default: nil
       t.references :list, null: false, foreign_key: true
 
       t.timestamps

@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_015324) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_200537) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "goals", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
-    t.boolean "finish", default: false
     t.string "finish_at"
     t.bigint "list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "post_by"
     t.index ["list_id"], name: "index_goals_on_list_id"
   end
 
